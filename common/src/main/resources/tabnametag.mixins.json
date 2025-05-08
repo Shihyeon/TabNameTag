@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "kr.shihyeon.tabnametag.mixin",
+  "refmap": "tabnametag.fabric.refmap.json",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "PlayerRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

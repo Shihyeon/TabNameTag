@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "tabnametag",
+  "version": "${version}",
+  "name": "TabNameTag",
+  "description": "",
+  "authors": [
+    {
+      "name": "@Shihyeon",
+      "contact": {
+        "sources": "https://github.com/Shihyeon"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/tabnametag",
+    "sources": "https://github.com/Shihyeon/TabNameTag",
+    "issues": "https://github.com/Shihyeon/TabNameTag/issues"
+  },
+  "license": "LGPL-3.0-only",
+  "icon": "assets/tabnametag/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "kr.shihyeon.tabnametag.fabric.client.TabNameTagClientFabric"
+    ]
+  },
+  "mixins": ["tabnametag.mixins.json", "tabnametag.fabric.mixins.json"],
+  "depends": {
+    "java": ">=21",
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": ">=${minecraft_version}"
+  },
+  "suggests": {
+    "modmenu": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/tab-name-tag"
+      }
+    }
+  }
+}
