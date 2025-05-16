@@ -1,7 +1,8 @@
 plugins {
     id("multiloader-platform")
 
-    id("net.neoforged.moddev") version("2.0.+")
+    id("net.neoforged.gradle.userdev") version("7.0.104")
+    id("net.neoforged.gradle.mixin") version("7.0.105")
 }
 
 base {
@@ -23,37 +24,14 @@ dependencies {
     configurationCommonModJava(project(path = ":common", configuration = "commonMainJava"))
 
     configurationCommonModResources(project(path = ":common", configuration = "commonMainResources"))
+
+    implementation("net.neoforged:neoforge:${BuildConfig.NEOFORGE_VERSION}")
 }
 
 sourceSets {
     main {
         compileClasspath += configurationCommonModJava
         runtimeClasspath += configurationCommonModJava
-    }
-}
-
-neoForge {
-    version = BuildConfig.NEOFORGE_VERSION
-
-    if (BuildConfig.PARCHMENT_VERSION != null) {
-        parchment {
-            minecraftVersion = BuildConfig.MINECRAFT_VERSION
-            mappingsVersion = BuildConfig.PARCHMENT_VERSION
-        }
-    }
-
-    runs {
-        create("Client") {
-            client()
-            ideName = "NeoForge/Client"
-        }
-    }
-
-    mods {
-        create("tabnametag") {
-            sourceSet(sourceSets["main"])
-            sourceSet(project(":common").sourceSets["main"])
-        }
     }
 }
 
