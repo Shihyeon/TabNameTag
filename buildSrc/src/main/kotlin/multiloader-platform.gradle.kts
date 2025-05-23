@@ -8,13 +8,12 @@ tasks {
         val propertiesMap = mapOf(
             "version" to version,
             "minecraft_version" to BuildConfig.MINECRAFT_VERSION,
-            "fabric_loader_version" to BuildConfig.FABRIC_LOADER_VERSION,
-            "neoforge_version" to BuildConfig.NEOFORGE_VERSION
+            "fabric_loader_version" to BuildConfig.FABRIC_LOADER_VERSION
         )
 
         inputs.properties(propertiesMap)
 
-        filesMatching(listOf("META-INF/neoforge.mods.toml", "fabric.mod.json")) {
+        filesMatching(listOf("fabric.mod.json")) {
             expand(propertiesMap)
         }
     }
